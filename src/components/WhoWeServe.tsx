@@ -1,77 +1,81 @@
 import React from "react";
+import { Church, School, User, GraduationCap, Building, Wrench } from "lucide-react";
 
 export default function WhoWeServe() {
   const sectors = [
     {
+      icon: Church,
       title: "Churches & Cathedrals",
-      desc: "Custom architectural pipe-organ façades, acoustic sound reinforcement systems, sanctuary voicing, and regular maintenance retainers.",
-      scope: "Cathedral & Sanctuary Projects",
+      desc: "Custom organ façades, sanctuary sound systems, acoustic enhancement, repairs, and technical maintenance retainers.",
     },
     {
-      title: "Music Schools & Conservatories",
-      desc: "Student-proof, durable bowed string instrument sets (violins, cellos) designed to endure rigorous daily practice while developing clean pitch.",
-      scope: "Institutional Outfitting",
+      icon: School,
+      title: "Schools & Music Faculties",
+      desc: "Durable stringed instrument sets (violins, violas, cellos) engineered for intensive student practice and music education.",
     },
     {
-      title: "Orchestral Musicians & Soloists",
-      desc: "Bespoke instruments voiced to artist preferences, with responsive setups, custom chinrests, and resonant projection.",
-      scope: "Concert Luthiery",
+      icon: User,
+      title: "Orchestras & Musicians",
+      desc: "Bespoke instruments crafted to individual acoustic preferences with tailored setups and responsive action.",
     },
     {
-      title: "Music Educators & Tutors",
-      desc: "Dependable study instruments that stay in tune, featuring ergonomic string height and action for young learners.",
-      scope: "Educational Resources",
+      icon: GraduationCap,
+      title: "Music Teachers & Tutors",
+      desc: "Dependable study instruments that stay in tune, featuring ergonomic string heights for beginner and advanced students.",
     },
     {
+      icon: Building,
       title: "Auditoriums & Event Halls",
-      desc: "Specialized acoustic cabinetry, sound enclosures, and custom woodwork designed around unique architectural sightlines.",
-      scope: "Acoustic Engineering",
+      desc: "Custom audio enclosures, specialized acoustic infrastructure, and tailored architectural cabinetry.",
     },
     {
-      title: "Individual Instrument Owners",
-      desc: "Full luthier repairs: bow re-hairing, crack repair, soundpost calibration, and free initial condition inspections.",
-      scope: "Luthier Clinic",
+      icon: Wrench,
+      title: "Instrument Owners",
+      desc: "Full luthier repairs: bow re-hairing, soundpost calibration, crack sealing, and free initial inspection.",
     },
   ];
 
   return (
-    <section className="bg-[#FAF6F0] text-[#1E1915] py-24 border-b border-[#1E1915]/10">
+    <section className="bg-[#0F1217] text-white py-16 sm:py-24 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-16">
-          <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#C85A17]">
-            Institutional & Artist Solutions
+        <div className="max-w-3xl mb-12">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#F26522]">
+            Target Sectors
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1E1915] mt-1">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
             Built for the People Who Make Music Happen
           </h2>
-          <p className="mt-3 text-base text-[#5A4E45] leading-relaxed">
-            From premier cathedrals across Nigeria to individual student musicians, our workshop provides end-to-end craftsmanship and technical support.
+          <p className="mt-3 text-sm sm:text-base text-slate-300">
+            From premier Nigerian cathedrals to student musicians, Zatil connects local manufacturing with reliable lifetime support.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sectors.map((sec, idx) => (
-            <div
-              key={idx}
-              className="p-8 bg-[#F3ECE2] border border-[#1E1915]/10 flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#8A796C] block mb-3">
-                  {sec.scope}
-                </span>
-                <h3 className="text-xl font-bold font-display text-[#1E1915] mb-2">
-                  {sec.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#5A4E45] leading-relaxed">
-                  {sec.desc}
-                </p>
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {sectors.map((sec, idx) => {
+            const Icon = sec.icon;
+            return (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl bg-[#13161C] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="p-3 rounded-xl bg-orange-500/10 text-[#F26522] w-fit mb-4">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {sec.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    {sec.desc}
+                  </p>
+                </div>
 
-              <div className="mt-6 pt-4 border-t border-[#1E1915]/10 text-xs font-mono text-[#C85A17]">
-                Verified Akure Support →
+                <div className="mt-5 pt-3 border-t border-white/10 text-xs text-[#FFA726] font-semibold">
+                  Akure Support Backed →
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

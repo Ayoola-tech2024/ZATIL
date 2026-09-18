@@ -4,14 +4,15 @@
 
 @layer base {
   :root {
-    --background: 251 248 243;
-    --foreground: 28 22 17;
+    --background: 11 13 16;
+    --foreground: 248 250 252;
   }
 
   body {
-    background-color: #FAF6F0;
-    color: #1E1915;
+    background-color: #0B0D10;
+    color: #F8FAFC;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
   }
 
   html {
@@ -19,37 +20,14 @@
   }
 }
 
-/* Authentic artisanal textures and hairline borders */
-.border-hairline {
-  border-color: rgba(30, 25, 21, 0.12);
+/* Sleek minimalist dark styling */
+.glass-card {
+  background: #13161C;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.border-hairline-dark {
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-.bg-atelier {
-  background-color: #191410;
-}
-
-.bg-parchment {
-  background-color: #FAF6F0;
-}
-
-.bg-parchment-subtle {
-  background-color: #F3ECE2;
-}
-
-/* Subtle print-grade paper texture */
-.paper-texture {
-  background-color: #FAF6F0;
-  background-image: radial-gradient(rgba(30, 25, 21, 0.04) 1px, transparent 0);
-  background-size: 20px 20px;
-}
-
-/* Editorial typography utilities */
-.font-display-serif {
-  font-family: var(--font-display), Georgia, serif;
+.glass-card-hover:hover {
+  border-color: rgba(242, 101, 34, 0.4);
 }
 
 /* Custom Scrollbar */
@@ -57,12 +35,12 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF6F0;
+  background: #0B0D10;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D5C8B8;
+  background: #1F242D;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C85A17;
+  background: #F26522;
 }
