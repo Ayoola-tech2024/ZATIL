@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     "Organ facade Cathedral Ozoro",
   ],
   authors: [{ name: "Zatil Group" }],
+  icons: {
+    icon: "/images/logo/zatil-logo.jpg",
+    shortcut: "/images/logo/zatil-logo.jpg",
+    apple: "/images/logo/zatil-logo.jpg",
+  },
   openGraph: {
     title: "Zatil Group — Made in Nigeria. Built for Africa. Designed to Inspire.",
     description:
