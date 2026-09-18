@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --background: 11 13 16;
-    --foreground: 248 250 252;
+    --background: 255 255 255;
+    --foreground: 10 10 10;
   }
 
   body {
-    background-color: #0B0D10;
-    color: #F8FAFC;
+    background-color: #FFFFFF;
+    color: #0A0A0A;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     overflow-x: hidden;
   }
@@ -20,26 +20,21 @@
   }
 }
 
-/* Sleek minimalist dark styling */
-.glass-card {
-  background: #13161C;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-card-hover:hover {
-  border-color: rgba(242, 101, 34, 0.4);
+/* Minimalist Dieter Rams / Apple style hairline rules */
+.border-line {
+  border-color: #E5E5E5;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0D10;
+  background: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1F242D;
-  border-radius: 3px;
+  background: #D4D4D4;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #F26522;

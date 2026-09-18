@@ -3,11 +3,9 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import StatsCounter from "@/components/StatsCounter";
+import InstrumentStudio from "@/components/InstrumentStudio";
 import OrganMilestone from "@/components/OrganMilestone";
 import BentoServices from "@/components/BentoServices";
-import ProductCatalog from "@/components/ProductCatalog";
-import WhoWeServe from "@/components/WhoWeServe";
 import ImpactCircular from "@/components/ImpactCircular";
 import PhotoGallery from "@/components/PhotoGallery";
 import CompanyStory from "@/components/CompanyStory";
@@ -32,45 +30,39 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#FAF8F5] text-slate-900 overflow-x-hidden">
-      {/* Top Fixed Navigation */}
+    <main className="min-h-screen bg-white text-[#0A0A0A] overflow-x-hidden">
+      {/* Minimalist Top Navigation */}
       <Navbar onOpenQuoteModal={() => handleOpenQuote()} />
 
-      {/* Hero Section */}
+      {/* Hero Section with Integrated Metrics Ledger */}
       <Hero onOpenQuoteModal={() => handleOpenQuote()} />
 
-      {/* Key Metrics & Statistics Bar */}
-      <StatsCounter />
+      {/* Interactive Instrument Studio (Tabbed Switcher, Zero Box Cards) */}
+      <InstrumentStudio onOpenQuoteModal={(prod) => handleOpenQuote(prod)} />
 
-      {/* Flagship Specialization: Pipe Organs & 51st Milestone Showcase */}
+      {/* 51st Pipe Organ Milestone & Monograph Feature */}
       <OrganMilestone onOpenQuoteModal={() => handleOpenQuote("Pipe Organ Façade Installation")} />
 
-      {/* Bento Grid Services & Craft Capabilities */}
+      {/* Manufacturing Capabilities & Practice (Numbered Editorial List) */}
       <BentoServices onOpenQuoteModal={(svc) => handleOpenQuote(svc)} />
 
-      {/* Product Catalog & ZUSP (Zatil Strings Unique Selling Points) */}
-      <ProductCatalog onOpenQuoteModal={(prod) => handleOpenQuote(prod)} />
-
-      {/* Who We Serve & Target Sectors */}
-      <WhoWeServe />
-
-      {/* Sustainability, Circular Economy & Socioeconomic Impact */}
+      {/* Sustainability, Circular Economy & Multiplier */}
       <ImpactCircular />
 
-      {/* Craftsmanship Photo Gallery & Proof of Work */}
+      {/* Project Archive (Clean Index Rows) */}
       <PhotoGallery />
 
-      {/* Company Story, Timeline & Leadership Team */}
+      {/* Heritage & Leadership Timeline */}
       <CompanyStory />
 
-      {/* Master Interactive Quote / Consultation Modal */}
+      {/* Lead Generation & Consultation Modal */}
       <QuoteModal
         isOpen={quoteModalOpen}
         onClose={handleCloseQuote}
         preselectedService={selectedService}
       />
 
-      {/* Footer & Contact Channels */}
+      {/* Footer */}
       <Footer />
     </main>
   );

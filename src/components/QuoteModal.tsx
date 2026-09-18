@@ -56,24 +56,24 @@ export default function QuoteModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-[#13161C] text-white rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-150">
+      <div className="relative w-full max-w-lg bg-white text-[#0A0A0A] rounded-3xl shadow-2xl border border-neutral-200 overflow-hidden">
         {/* Header */}
-        <div className="p-6 border-b border-white/10 flex items-start justify-between">
+        <div className="p-6 sm:p-8 border-b border-neutral-100 flex items-start justify-between">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#F26522] block mb-1">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#F26522] block mb-1">
               Direct Consultation
             </span>
-            <h3 className="text-xl font-bold text-white">
+            <h3 className="text-2xl font-black uppercase text-[#0A0A0A]">
               Request a Project Quote
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-neutral-500 mt-1">
               Connect directly with our master craftsmen in Akure.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-2 rounded-full text-neutral-400 hover:text-black hover:bg-neutral-100 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -81,13 +81,13 @@ export default function QuoteModal({
 
         {submitted ? (
           <div className="p-8 text-center space-y-4">
-            <div className="w-14 h-14 rounded-full bg-lime-500/10 text-[#7CB342] flex items-center justify-center mx-auto">
+            <div className="w-14 h-14 rounded-full bg-lime-100 text-[#7CB342] flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-7 h-7" />
             </div>
-            <h4 className="text-lg font-bold text-white">
-              Inquiry Dispatched!
+            <h4 className="text-xl font-bold text-[#0A0A0A]">
+              Inquiry Dispatched
             </h4>
-            <p className="text-xs text-slate-300 max-w-sm mx-auto">
+            <p className="text-xs text-neutral-600 max-w-sm mx-auto">
               Thank you for reaching out to Zatil Group. Our technical team will review your project requirements and connect with you shortly.
             </p>
             <div className="pt-2">
@@ -96,17 +96,17 @@ export default function QuoteModal({
                   setSubmitted(false);
                   onClose();
                 }}
-                className="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-bold uppercase"
+                className="px-6 py-2.5 rounded-full bg-black text-white text-xs font-bold uppercase"
               >
                 Close Window
               </button>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleWhatsAppSend} className="p-6 space-y-3.5 max-h-[75vh] overflow-y-auto text-left">
+          <form onSubmit={handleWhatsAppSend} className="p-6 sm:p-8 space-y-4 max-h-[75vh] overflow-y-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
                   Full Name *
                 </label>
                 <input
@@ -115,27 +115,27 @@ export default function QuoteModal({
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="e.g. Pastor Emmanuel"
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs text-[#0A0A0A] placeholder-neutral-400 focus:outline-none focus:border-black"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
                   Church / Institution
                 </label>
                 <input
                   type="text"
                   value={orgName}
                   onChange={(e) => setOrgName(e.target.value)}
-                  placeholder="e.g. Cathedral of St. Paul"
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
+                  placeholder="e.g. St. Paul Cathedral"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs text-[#0A0A0A] placeholder-neutral-400 focus:outline-none focus:border-black"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
                   WhatsApp Phone *
                 </label>
                 <input
@@ -144,12 +144,12 @@ export default function QuoteModal({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="e.g. 0803 081 4281"
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs text-[#0A0A0A] placeholder-neutral-400 focus:outline-none focus:border-black"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
                   Location (City / State) *
                 </label>
                 <input
@@ -158,32 +158,32 @@ export default function QuoteModal({
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="e.g. Akure, Lagos, Delta"
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs text-[#0A0A0A] placeholder-neutral-400 focus:outline-none focus:border-black"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
                 Select Service / Product *
               </label>
               <select
                 value={service}
                 onChange={(e) => setService(e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs text-white focus:outline-none focus:border-orange-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs text-[#0A0A0A] bg-white focus:outline-none focus:border-black"
               >
-                <option value="Pipe Organ Façade Installation" className="bg-[#13161C]">Pipe Organ Façade Installation (Church / Cathedral)</option>
-                <option value="Handcrafted Violin / Viola / Cello Purchase" className="bg-[#13161C]">Stringed Instrument Purchase (Violin, Viola, Cello, Bass)</option>
-                <option value="Audio Speakers & Sound Reinforcement" className="bg-[#13161C]">Audio Speakers & Sound Reinforcement Systems</option>
-                <option value="Luthier Repair / Maintenance" className="bg-[#13161C]">Luthier Repair / Maintenance / Bow Re-hairing</option>
-                <option value="Instrument Refurbishment" className="bg-[#13161C]">Instrument Refurbishment & Restoration</option>
-                <option value="Music & Technical Training" className="bg-[#13161C]">Music & Technical Luthier Training</option>
-                <option value="Custom Architectural Fabrication" className="bg-[#13161C]">Custom Architectural CAD Fabrication</option>
+                <option value="Pipe Organ Façade Installation">Pipe Organ Façade Installation (Church / Cathedral)</option>
+                <option value="Handcrafted Violin / Viola / Cello Purchase">Stringed Instrument Purchase (Violin, Viola, Cello, Bass)</option>
+                <option value="Audio Speakers & Sound Reinforcement">Audio Speakers & Sound Reinforcement Systems</option>
+                <option value="Luthier Repair / Maintenance">Luthier Repair / Maintenance / Bow Re-hairing</option>
+                <option value="Instrument Refurbishment">Instrument Refurbishment & Restoration</option>
+                <option value="Music & Technical Training">Music & Technical Luthier Training</option>
+                <option value="Custom Architectural Fabrication">Custom Architectural CAD Fabrication</option>
               </select>
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
                 Project Notes / Details
               </label>
               <textarea
@@ -191,14 +191,14 @@ export default function QuoteModal({
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
                 placeholder="Describe your sanctuary dimensions or requirements..."
-                className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs text-[#0A0A0A] placeholder-neutral-400 focus:outline-none focus:border-black"
               />
             </div>
 
-            <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
+            <div className="pt-2 flex flex-col sm:flex-row gap-3">
               <button
                 type="submit"
-                className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs shadow-md transition-colors"
+                className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs shadow-sm transition-colors"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Send via WhatsApp</span>
@@ -207,7 +207,7 @@ export default function QuoteModal({
               <button
                 type="button"
                 onClick={handleEmailSend}
-                className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs transition-colors"
+                className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-bold text-xs transition-colors"
               >
                 <Send className="w-4 h-4" />
                 <span>Send Email</span>
