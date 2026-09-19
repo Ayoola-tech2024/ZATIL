@@ -15,7 +15,7 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -33,24 +33,30 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-white/95 backdrop-blur-md ${
-        isScrolled ? "border-b border-neutral-200 py-3 shadow-sm" : "border-b border-neutral-100 py-4 sm:py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md border-b border-neutral-200 py-3 shadow-sm"
+          : "bg-black/40 backdrop-blur-md border-b border-white/10 py-4 sm:py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="focus:outline-none">
-            <ZatilLogo variant="light" />
+            <ZatilLogo variant={isScrolled ? "light" : "dark"} />
           </Link>
 
-          {/* Minimalist Desktop Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-600 hover:text-black transition-colors"
+                className={`text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
+                  isScrolled
+                    ? "text-neutral-600 hover:text-black"
+                    : "text-slate-200 hover:text-[#FFA726]"
+                }`}
               >
                 {link.name}
               </a>
@@ -61,7 +67,9 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
           <div className="hidden lg:flex items-center gap-6">
             <a
               href="tel:+2348030814281"
-              className="text-xs font-semibold tracking-wider text-neutral-500 hover:text-black transition-colors flex items-center gap-1.5"
+              className={`text-xs font-semibold tracking-wider transition-colors flex items-center gap-1.5 ${
+                isScrolled ? "text-neutral-600 hover:text-black" : "text-slate-200 hover:text-white"
+              }`}
             >
               <Phone className="w-3.5 h-3.5 text-[#F26522]" />
               <span>0803 081 4281</span>
@@ -69,7 +77,11 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
 
             <button
               onClick={onOpenQuoteModal}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition-all shadow-sm"
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
+                isScrolled
+                  ? "bg-black text-white hover:bg-neutral-800"
+                  : "bg-[#F26522] text-white hover:bg-orange-600 shadow-orange-500/30"
+              }`}
             >
               <span>Request Quote</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -80,13 +92,13 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
           <div className="lg:hidden flex items-center gap-3">
             <button
               onClick={onOpenQuoteModal}
-              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-black text-white"
+              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#F26522] text-white"
             >
               Quote
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-black focus:outline-none"
+              className={`p-2 focus:outline-none ${isScrolled ? "text-black" : "text-white"}`}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -97,7 +109,7 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-neutral-200 px-6 py-6 space-y-4 shadow-lg animate-in fade-in duration-150">
+        <div className="lg:hidden bg-white text-black border-b border-neutral-200 px-6 py-6 space-y-4 shadow-xl animate-in fade-in duration-150">
           <div className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <a
