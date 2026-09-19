@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, MapPin, Check } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, MapPin, Check, Building2, Layers, Award } from "lucide-react";
 
 interface OrganMilestoneProps {
   onOpenQuoteModal: () => void;
@@ -9,124 +10,132 @@ interface OrganMilestoneProps {
 
 export default function OrganMilestone({ onOpenQuoteModal }: OrganMilestoneProps) {
   const steps = [
-    { num: "01", title: "CAD & Architectural Design", desc: "Proportions customized to church altar width & high ceiling acoustics." },
-    { num: "02", title: "Casework Joinery", desc: "Solid hardwood framing engineered for rigid pipe support." },
-    { num: "03", title: "Staining & Pipe Gilding", desc: "Finishes coordinated with church interior woodworking." },
-    { num: "04", title: "Nationwide Transit", desc: "Specialist logistics from Akure facility to your site." },
-    { num: "05", title: "On-Site Erection", desc: "Rigging and structural alignment by our master technicians." },
-    { num: "06", title: "Console Voicing & Tuning", desc: "Integration with Viscount, Allen, Johannus & Rodgers organs." },
+    { num: "01", title: "CAD & Architectural Design", desc: "Acoustic modeling customized to church altar width & ceiling height." },
+    { num: "02", title: "Casework Joinery", desc: "Solid timber chassis engineered for rigid structural pipe support." },
+    { num: "03", title: "Staining & Pipe Gilding", desc: "Casework staining harmonized with sanctuary interior millwork." },
+    { num: "04", title: "Nationwide Transit", desc: "Specialist logistics from Akure workshop directly to the cathedral." },
+    { num: "05", title: "On-Site Erection & Rigging", desc: "Precision assembly and mounting by master luthier technicians." },
+    { num: "06", title: "Console Voicing & Testing", desc: "Electrical and acoustic coupling for Viscount, Allen & Johannus." },
   ];
 
   return (
-    <section id="pipe-organs" className="py-20 sm:py-28 bg-[#FAFAFA] text-[#0A0A0A] border-b border-neutral-200">
+    <section id="pipe-organs" className="py-24 sm:py-32 bg-[#0B0D10] text-white border-b border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#F26522]">
-            Flagship Specialization
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-[#0A0A0A] uppercase mt-1">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-bold font-mono uppercase tracking-widest text-[#FFA726] mb-4">
+            <Building2 className="w-3.5 h-3.5" />
+            <span>Architectural Pipe Lutherie</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase leading-tight">
             51+ Pipe Organ Façades <br />
-            <span className="text-neutral-500 font-light lowercase italic">and counting</span>
+            <span className="text-[#F26522] italic font-serif font-light lowercase">across</span> Nigeria
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-neutral-600 leading-relaxed">
-            Zatil is Nigeria's leading authority in designing, manufacturing, and installing custom decorative and acoustic pipe-organ façades for cathedrals and churches across 11+ states.
+          <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-normal">
+            Zatil Group is Nigeria's premier engineering firm designing, fabricating, and erecting custom architectural pipe-organ façades for cathedrals, basilicas, and worship auditoriums nationwide.
           </p>
         </div>
 
-        {/* Milestone Monograph Feature (Clean White Minimalist Layout) */}
-        <div className="bg-white border border-neutral-200 p-8 sm:p-12 rounded-3xl mb-16 shadow-sm">
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-neutral-100 mb-8">
-            <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#F26522] text-xs font-bold uppercase font-mono">
-                Milestone #51
-              </span>
-              <span className="text-xs text-neutral-400">Completed & Consecrated 2024</span>
+        {/* Monumental Split Case Study Showcase */}
+        <div className="bg-[#13161C] border border-white/10 rounded-3xl p-6 sm:p-12 mb-20 relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Real Installation Photography Frame */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative h-80 sm:h-[450px] rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
+                <Image
+                  src="/images/hero/hero-organ.jpg"
+                  alt="Zatil Cathedral Pipe Organ Installation"
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+                
+                {/* Photo Tag Overlay */}
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between z-10">
+                  <div className="bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/20 text-xs font-semibold text-white flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#F26522]" />
+                    <span>Cathedral of St. Paul's, Ozoro</span>
+                  </div>
+                  <span className="bg-[#F26522] text-white font-mono text-xs font-bold px-3 py-1.5 rounded-xl uppercase">
+                    Opus #51
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-600">
-              <MapPin className="w-4 h-4 text-[#F26522]" />
-              <span>Cathedral of St. Paul's Anglican Church • Ozoro, Delta State</span>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <h3 className="text-2xl sm:text-4xl font-extrabold text-[#0A0A0A] tracking-tight">
-                Architectural Pipe Façade with 2-Manual Viscount Console
-              </h3>
-              <p className="text-sm text-neutral-600 leading-relaxed font-normal">
-                Designed for the high vaulted sanctuary of St. Paul’s Cathedral in Ozoro. 
-                Featuring handcrafted seasoned hardwood casework, tiered symmetrical pipe scaling, 
-                and full digital console voicing tailored for Nigerian cathedral worship acoustics.
+            {/* Case Study Details */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#FFA726]">
+                  Flagship Case Study
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mt-1">
+                  Cathedral Pipe-Organ Façade & Viscount Console
+                </h3>
+                <p className="text-xs text-slate-400 mt-1">
+                  Cathedral of St. Paul's Anglican Church • Ozoro, Delta State
+                </p>
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                Engineered for the high vaulted sanctuary of St. Paul’s Cathedral. 
+                Integrating a <strong>2-manual Viscount organ console</strong> with symmetrical gold-scaled pipe towers, 
+                seasoned hardwood casework, and digital sound voicing tailored for congregational hymnody.
               </p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 text-xs">
-                <div className="p-4 bg-neutral-50 rounded-xl">
-                  <span className="text-neutral-400 block text-[10px] uppercase">Console</span>
-                  <span className="font-bold text-[#0A0A0A] mt-0.5 block">2-Manual Viscount</span>
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
+                  <span className="text-[10px] font-mono uppercase text-slate-400 block">Console Type</span>
+                  <span className="font-bold text-white mt-1 block">2-Manual Viscount</span>
                 </div>
-                <div className="p-4 bg-neutral-50 rounded-xl">
-                  <span className="text-neutral-400 block text-[10px] uppercase">Timber</span>
-                  <span className="font-bold text-[#0A0A0A] mt-0.5 block">Seasoned Hardwood</span>
+                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
+                  <span className="text-[10px] font-mono uppercase text-slate-400 block">Casework Wood</span>
+                  <span className="font-bold text-white mt-1 block">Seasoned Hardwood</span>
                 </div>
-                <div className="p-4 bg-neutral-50 rounded-xl col-span-2 sm:col-span-1">
-                  <span className="text-neutral-400 block text-[10px] uppercase">Scope</span>
-                  <span className="font-bold text-[#7CB342] mt-0.5 block">Design + Full Erection</span>
+                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
+                  <span className="text-[10px] font-mono uppercase text-slate-400 block">Acoustic Scale</span>
+                  <span className="font-bold text-white mt-1 block">High-Vault Symmetrical</span>
+                </div>
+                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
+                  <span className="text-[10px] font-mono uppercase text-slate-400 block">Status</span>
+                  <span className="font-bold text-[#7CB342] mt-1 block">Completed & In Use</span>
                 </div>
               </div>
 
-              <div>
+              <div className="pt-2">
                 <button
                   onClick={onOpenQuoteModal}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#F26522] hover:bg-orange-600 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-xl shadow-orange-500/25"
                 >
-                  <span>Commission a Church Pipe Organ Façade</span>
+                  <span>Commission a Cathedral Pipe Organ</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
-
-            <div className="lg:col-span-5 bg-neutral-50 p-6 sm:p-8 rounded-2xl space-y-3.5 text-xs text-neutral-700">
-              <h4 className="font-bold uppercase tracking-wider text-[#0A0A0A] border-b border-neutral-200 pb-3">
-                Architectural Specifications
-              </h4>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
-                  <span><strong>Custom Dimensions:</strong> Proportional scaling to altar width and gallery ceiling height.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
-                  <span><strong>Wood Staining:</strong> Natural mahogany, rich walnut, ebony, or custom cathedral lacquer.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
-                  <span><strong>Pipe Finishes:</strong> Gilded gold, polished aluminum, satin silver, or matching church woodwork.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
-                  <span><strong>Compatibility:</strong> Viscount, Allen, Johannus, Rodgers, and digital organ consoles.</span>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
 
-        {/* 6-Phase Pipeline Line (No Box Cards) */}
+        {/* 6-Phase Pipeline Line */}
         <div>
-          <h3 className="text-xl font-bold uppercase tracking-wider text-[#0A0A0A] mb-8">
-            The 6-Phase Engineering Pipeline
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200">
+          <div className="mb-8 flex items-center justify-between pb-4 border-b border-white/10">
+            <h3 className="text-xl font-bold uppercase tracking-wider text-white">
+              The 6-Phase Engineering Pipeline
+            </h3>
+            <span className="text-xs font-mono text-slate-400">
+              Akure Workshop to Site
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
             {steps.map((st, idx) => (
               <div key={idx} className={`${idx > 0 ? "pt-4 sm:pt-0 sm:pl-4" : ""}`}>
-                <span className="text-xs font-mono font-bold text-[#F26522] block mb-1">
+                <span className="text-xs font-mono font-bold text-[#FFA726] block mb-1">
                   [{st.num}]
                 </span>
-                <h4 className="text-xs font-bold uppercase text-[#0A0A0A] mb-1">
+                <h4 className="text-xs font-bold uppercase text-white mb-1">
                   {st.title}
                 </h4>
-                <p className="text-[11px] text-neutral-500 leading-relaxed">
+                <p className="text-[11px] text-slate-400 leading-relaxed">
                   {st.desc}
                 </p>
               </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { MapPin } from "lucide-react";
+import Image from "next/image";
+import { MapPin, ArrowUpRight } from "lucide-react";
 
 export default function PhotoGallery() {
   const [filter, setFilter] = useState("all");
@@ -14,14 +15,18 @@ export default function PhotoGallery() {
       year: "2024",
       highlight: "Milestone Opus #51 • 2-Manual Viscount Console",
       code: "OPUS-051",
+      image: "/images/hero/hero-organ.jpg",
+      details: "Decorative pipe façade scaled to high-vaulted altar acoustics with seasoned hardwood cabinetry.",
     },
     {
       title: "Church of the Ascension Pipe-Organ Façade",
       category: "organs",
       location: "Badore, Ajah, Lagos State",
       year: "2024",
-      highlight: "Custom Architectural Pipe Scaling & Casework",
+      highlight: "Architectural Pipe Scaling & Casework",
       code: "OPUS-049",
+      image: "/images/hero/hero-organ.jpg",
+      details: "Custom-fitted pipe ranks and audio integration designed for contemporary sanctuary architecture.",
     },
     {
       title: "All Saints Anglican Church Digital Organ",
@@ -30,6 +35,8 @@ export default function PhotoGallery() {
       year: "2023",
       highlight: "Sanus Dominos Organ & Bespoke Pipe Façade",
       code: "OPUS-048",
+      image: "/images/hero/hero-organ.jpg",
+      details: "Full sanctuary console voicing and symmetrical pipe casework matching cathedral interior woodwork.",
     },
     {
       title: "Our Father's Cathedral Façade Installation",
@@ -38,6 +45,8 @@ export default function PhotoGallery() {
       year: "2023",
       highlight: "High-Vaulted Gallery Façade Casework",
       code: "OPUS-045",
+      image: "/images/hero/hero-organ.jpg",
+      details: "Monumental pipe array engineered for maximum acoustic dispersion across wide nave seating.",
     },
     {
       title: "St. Andrew's Anglican Church Pipe Façade",
@@ -46,6 +55,8 @@ export default function PhotoGallery() {
       year: "2023",
       highlight: "Sanctuary Voicing & Solid Timber Framing",
       code: "OPUS-043",
+      image: "/images/hero/hero-organ.jpg",
+      details: "Casework joinery anchored directly into church chancel with gilded gold pipe ranks.",
     },
     {
       title: "Concert Violins & Cellos Hand-Carving",
@@ -54,13 +65,15 @@ export default function PhotoGallery() {
       year: "2024",
       highlight: "Seasoned African Tonewood & Madagascar Ebony",
       code: "LUTH-2024",
+      image: "/images/hero/hero-organ.jpg",
+      details: "Indigenous lutherie production of violins, violas, cellos, and double basses for musicians nationwide.",
     },
   ];
 
   const filtered = filter === "all" ? projects : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="archive" className="py-20 sm:py-28 bg-white text-[#0A0A0A] border-b border-neutral-200">
+    <section id="archive" className="py-24 sm:py-32 bg-white text-[#0A0A0A] border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
@@ -68,22 +81,22 @@ export default function PhotoGallery() {
               Verified Proof of Work
             </span>
             <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-[#0A0A0A] uppercase mt-1">
-              Project Archive
+              Project Portfolio & Archive
             </h2>
           </div>
 
           <div className="flex flex-wrap gap-2">
             {[
-              { id: "all", label: "All Projects" },
-              { id: "organs", label: "Pipe Organs (51+)" },
-              { id: "strings", label: "Bowed Strings" },
+              { id: "all", label: "All Works (51+)" },
+              { id: "organs", label: "Church Pipe Organs" },
+              { id: "strings", label: "Bowed String Lutherie" },
             ].map((btn) => (
               <button
                 key={btn.id}
                 onClick={() => setFilter(btn.id)}
-                className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+                className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
                   filter === btn.id
-                    ? "bg-black text-white"
+                    ? "bg-[#0A0A0A] text-white shadow-sm"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
                 }`}
               >
@@ -93,33 +106,50 @@ export default function PhotoGallery() {
           </div>
         </div>
 
-        {/* Minimalist Archive Table Rows */}
-        <div className="border-t border-neutral-200 divide-y divide-neutral-200">
+        {/* Visual Portfolio Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((proj, idx) => (
             <div
               key={idx}
-              className="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-center hover:bg-neutral-50 px-4 -mx-4 transition-colors rounded-xl"
+              className="bg-neutral-50 border border-neutral-200 rounded-3xl overflow-hidden hover:border-black transition-all group flex flex-col justify-between"
             >
-              <div className="md:col-span-2 text-xs font-mono font-bold text-[#F26522]">
-                {proj.code} • {proj.year}
+              <div>
+                {/* Photo Thumbnail */}
+                <div className="relative h-48 w-full overflow-hidden bg-neutral-900">
+                  <Image
+                    src={proj.image}
+                    alt={proj.title}
+                    fill
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-mono text-white">
+                    {proj.code}
+                  </div>
+                  <div className="absolute bottom-3 left-3 text-xs font-bold text-[#FFA726]">
+                    {proj.highlight}
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-[#0A0A0A] group-hover:text-[#F26522] transition-colors mb-2">
+                    {proj.title}
+                  </h3>
+
+                  <div className="flex items-center gap-1.5 text-xs text-neutral-500 mb-3">
+                    <MapPin className="w-3.5 h-3.5 text-[#F26522]" />
+                    <span>{proj.location}</span>
+                  </div>
+
+                  <p className="text-xs text-neutral-600 leading-relaxed">
+                    {proj.details}
+                  </p>
+                </div>
               </div>
 
-              <div className="md:col-span-5">
-                <h3 className="text-base sm:text-lg font-bold text-[#0A0A0A]">
-                  {proj.title}
-                </h3>
-                <p className="text-xs text-neutral-500 mt-0.5">
-                  {proj.highlight}
-                </p>
-              </div>
-
-              <div className="md:col-span-3 text-xs text-neutral-600 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-neutral-400" />
-                <span>{proj.location}</span>
-              </div>
-
-              <div className="md:col-span-2 text-left md:text-right text-xs font-mono text-[#7CB342] font-bold">
-                Completed & Consecrated ✓
+              <div className="p-6 pt-0 border-t border-neutral-200/60 mt-4 flex items-center justify-between text-xs font-mono">
+                <span className="text-neutral-400">Year: {proj.year}</span>
+                <span className="text-[#7CB342] font-bold">Commissioned ✓</span>
               </div>
             </div>
           ))}

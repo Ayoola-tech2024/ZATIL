@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Sparkles, Volume2, Shield, CheckCircle2 } from "lucide-react";
 
 interface InstrumentStudioProps {
   onOpenQuoteModal: (product?: string) => void;
@@ -14,175 +14,199 @@ export default function InstrumentStudio({ onOpenQuoteModal }: InstrumentStudioP
     {
       id: "violin",
       name: "Handcrafted Zatil Violin",
-      scale: "Full Size (4/4) & Student Graduations (3/4, 1/2)",
-      lead: "Artisan-carved acoustic violin engineered with seasoned African spruce and tonewood for vibrant projection and tropical climatic stability.",
+      category: "Bowed String Opus",
+      scale: "4/4 Concert & Student (3/4, 1/2)",
+      acousticProfile: "Vibrant, Warm Concert Soprano",
+      wood: "Seasoned African Spruce Top & Tone Hardwood Back",
+      finish: "Hand-Rubbed Amber Oil Varnish",
+      fittings: "Madagascar Ebony Pegs, Fingerboard & Chinrest",
+      lead: "Artisan-carved in Akure for cathedral soloists, orchestral concertmasters, and advanced students seeking effortless projection and tropical climatic stability.",
       specs: [
-        { label: "Soundboard", val: "Seasoned African Acoustic Tonewood" },
-        { label: "Fingerboard & Pegs", val: "Madagascar Ebony" },
-        { label: "Varnish", val: "Hand-Rubbed Amber Oil Varnish" },
-        { label: "Package", val: "Hardwood case, octagonal bow, rosin cake" },
-        { label: "Warranty", val: "Full structural guarantee + 6 months free restoration" },
+        "Acoustic Spruce Soundboard conditioned for humidity resilience",
+        "Ebony fingerboard planed to 0.5mm precision camber",
+        "Includes hard flight case, octagonal brazilwood bow & rosin",
+        "6-Month complimentary setup & tonal adjustment included",
       ],
-      idealFor: "Cathedral Orchestras, Music Students, Concert Soloists",
+      colorAccent: "from-orange-500 to-amber-600",
     },
     {
       id: "viola",
       name: "Bespoke Zatil Viola",
+      category: "Bowed String Opus",
       scale: "15” to 16.5” Body Patterns",
-      lead: "Deep, sonorous tenor voice crafted with an enlarged chamber depth for rich lower-register resonance in worship spaces and classical ensembles.",
+      acousticProfile: "Deep, Velvety Tenor Resonance",
+      wood: "Seasoned African Hardwood & Flamed Ribs",
+      finish: "Hand-Applied Golden Honey Lacquer",
+      fittings: "Ebony Fingerboard & 4-Fine-Tuner Tailpiece",
+      lead: "Engineered with an enlarged internal chamber depth for rich lower-register resonance in worship sanctuaries, classical quartets, and chamber ensembles.",
       specs: [
-        { label: "Body Chamber", val: "Enlarged rib depth for warm acoustic lows" },
-        { label: "Tailpiece", val: "Precision 4-Fine-Tuner Assembly" },
-        { label: "Bridge", val: "Hand-carved acoustic hardwood bridge" },
-        { label: "Package", val: "Durable travel flight case & balanced bow" },
-        { label: "Warranty", val: "Full structural guarantee + 6 months free restoration" },
+        "Enlarged air chamber for rich, dark C-string resonance",
+        "Hand-carved acoustic bridge shaped for fast string response",
+        "Durable lightweight travel flight case & balanced bow",
+        "6-Month complimentary setup & tonal adjustment included",
       ],
-      idealFor: "Orchestras, Chamber Quartets, Music Faculties",
+      colorAccent: "from-amber-600 to-yellow-600",
     },
     {
       id: "cello",
       name: "Master Zatil Cello",
+      category: "Bowed String Opus",
       scale: "4/4 Concert & Study Grades",
-      lead: "Commanding bass presence designed with reinforced internal bass-bar bracing to project effortlessly across large cathedral halls without acoustic distortion.",
+      acousticProfile: "Thunderous, Commanding Bass Projection",
+      wood: "Aged Acoustic Tonewood & Solid Hardwood",
+      finish: "Traditional Deep Amber Varnish",
+      fittings: "Ebony Fingerboard & Heavy Brass Endpin",
+      lead: "Commanding cello designed with reinforced internal bass-bar bracing to project effortlessly across large cathedral halls without acoustic compression or distortion.",
       specs: [
-        { label: "Scroll & Neck", val: "Hand-carved acoustic scroll with reinforced joinery" },
-        { label: "Endpin", val: "Heavy-duty brass lock endpin" },
-        { label: "Soundpost", val: "Individually calibrated and voiced in Akure" },
-        { label: "Package", val: "Padded high-denier gig case & concert bow" },
-        { label: "Warranty", val: "Full structural guarantee + 6 months free restoration" },
+        "Reinforced bass-bar for powerful, distortion-free low end",
+        "Heavy-duty brass collar endpin with positive lock mechanism",
+        "Padded high-denier water-resistant gig case & concert bow",
+        "6-Month complimentary setup & tonal adjustment included",
       ],
-      idealFor: "Cathedrals, String Ensembles, Conservatories",
+      colorAccent: "from-orange-600 to-rose-700",
     },
     {
       id: "double-bass",
       name: "Concert Zatil Double Bass",
+      category: "Bowed String Opus",
       scale: "3/4 Orchestral & Jazz Standard",
-      lead: "Massive acoustic foundation delivering thunderous projection and warmth. Built with reinforced joints specifically tempered for tropical climates.",
+      acousticProfile: "Subterranean Foundational Lows",
+      wood: "Solid Acoustic Tonewood with Heavy Bracing",
+      finish: "Satin Walnut & Hardwood Protective Oil",
+      fittings: "Heavy-Duty Brass Tuning Machine Gears",
+      lead: "Massive acoustic foundation delivering thunderous projection and warmth. Built with reinforced joints specifically tempered for tropical temperature shifts.",
       specs: [
-        { label: "Soundboard", val: "Solid acoustic tonewood with heavy bracing" },
-        { label: "Tuning Gears", val: "Heavy-duty brass machine tuners" },
-        { label: "Bridge", val: "Adjustable height acoustic bridge" },
-        { label: "Package", val: "Reinforced transport bag with accessory pockets" },
-        { label: "Warranty", val: "Full structural guarantee + 6 months free restoration" },
+        "Solid tonewood soundboard with heavy-duty internal bracing",
+        "Precision brass machine gear tuners with smooth gear ratios",
+        "Reinforced transport bag with double-padded accessory pouches",
+        "6-Month complimentary setup & tonal adjustment included",
       ],
-      idealFor: "Churches, Symphony Orchestras, Jazz Bands",
+      colorAccent: "from-neutral-800 to-neutral-950",
     },
   ];
 
   const current = instruments[activeTab];
 
   return (
-    <section id="instruments" className="py-20 sm:py-28 bg-white text-[#0A0A0A] border-b border-neutral-200">
+    <section id="instruments" className="py-24 sm:py-32 bg-white text-[#0A0A0A] border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#F26522]">
-              Luthier Specimen Catalog
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-[#0A0A0A] uppercase mt-1">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#F26522] mb-2">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Acoustic Lutherie Showroom</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-[#0A0A0A] uppercase">
               Bespoke String Instruments
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-neutral-500 max-w-md">
-            Hand-carved in our Akure workshop from seasoned African acoustic tonewoods. Select an instrument to view technical build specifications.
+          <p className="text-sm text-neutral-500 max-w-md leading-relaxed">
+            Hand-carved in Akure from seasoned African acoustic tonewoods. Select an instrument to explore acoustic profiling and build specifications.
           </p>
         </div>
 
-        {/* Minimalist Tab Bar (No Card Clutter) */}
-        <div className="flex flex-wrap gap-2 border-b border-neutral-200 pb-4 mb-10">
+        {/* Interactive Studio Switcher */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-12">
           {instruments.map((inst, idx) => (
             <button
               key={inst.id}
               onClick={() => setActiveTab(idx)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`p-4 sm:p-5 text-left rounded-2xl border transition-all ${
                 activeTab === idx
-                  ? "bg-black text-white shadow-sm"
-                  : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
+                  ? "bg-[#0A0A0A] text-white border-black shadow-xl"
+                  : "bg-neutral-50 hover:bg-neutral-100 text-neutral-700 border-neutral-200"
               }`}
             >
-              {inst.name.replace("Zatil ", "")}
+              <span className={`text-[10px] font-mono uppercase tracking-wider block mb-1 ${activeTab === idx ? "text-[#FFA726]" : "text-neutral-400"}`}>
+                [ 0{idx + 1} ]
+              </span>
+              <h3 className="text-sm sm:text-base font-bold truncate">
+                {inst.name.replace("Handcrafted Zatil ", "").replace("Bespoke Zatil ", "").replace("Master Zatil ", "").replace("Concert Zatil ", "")}
+              </h3>
+              <span className={`text-xs block mt-0.5 ${activeTab === idx ? "text-neutral-300" : "text-neutral-500"}`}>
+                {inst.scale.split("&")[0]}
+              </span>
             </button>
           ))}
         </div>
 
-        {/* Interactive Studio Display */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          {/* Left Spec Details */}
+        {/* Studio Showcase Display */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 bg-neutral-50 border border-neutral-200 p-8 sm:p-12 rounded-3xl items-center">
+          {/* Visual Showcase Frame */}
+          <div className="lg:col-span-5 relative">
+            <div className="h-72 sm:h-96 rounded-2xl bg-gradient-to-br from-neutral-900 via-neutral-800 to-black text-white p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+              {/* Abstract Acoustic Tone Wave Background */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/15 rounded-full blur-3xl" />
+              
+              <div className="flex items-center justify-between z-10">
+                <span className="text-xs font-mono font-bold text-[#FFA726] bg-white/10 px-3 py-1 rounded-full uppercase">
+                  Akure Master Build
+                </span>
+                <div className="flex items-center gap-1.5 text-xs text-neutral-400">
+                  <Volume2 className="w-4 h-4 text-[#7CB342]" />
+                  <span>Acoustic Voicing</span>
+                </div>
+              </div>
+
+              {/* Central Typographic Showcase */}
+              <div className="z-10 my-auto py-6">
+                <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-widest block mb-1">
+                  Acoustic Signature
+                </span>
+                <h4 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+                  {current.acousticProfile}
+                </h4>
+                <p className="text-xs text-neutral-300 mt-2 font-mono">
+                  Tonewood: {current.wood}
+                </p>
+              </div>
+
+              <div className="flex items-center justify-between z-10 pt-4 border-t border-white/10 text-xs text-neutral-300">
+                <span>{current.finish}</span>
+                <span className="font-bold text-[#7CB342]">100% African Seasoned</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Technical Specs & Details */}
           <div className="lg:col-span-7 space-y-6">
             <div>
               <span className="text-xs font-mono font-bold text-[#F26522] uppercase tracking-wider">
-                Specification Scale: {current.scale}
+                {current.category} • {current.scale}
               </span>
-              <h3 className="text-2xl sm:text-4xl font-extrabold text-[#0A0A0A] tracking-tight mt-1">
+              <h3 className="text-2xl sm:text-4xl font-black text-[#0A0A0A] tracking-tight uppercase mt-1">
                 {current.name}
               </h3>
-              <p className="text-xs font-semibold text-neutral-500 mt-1">
-                Target Application: {current.idealFor}
+              <p className="text-sm text-neutral-600 leading-relaxed mt-2">
+                {current.lead}
               </p>
             </div>
 
-            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
-              {current.lead}
-            </p>
-
-            {/* Clean Spec Table */}
-            <div className="border-t border-neutral-200 divide-y divide-neutral-100 text-xs sm:text-sm">
+            {/* Spec Highlights Checklist */}
+            <div className="space-y-2.5 pt-2">
               {current.specs.map((sp, sIdx) => (
-                <div key={sIdx} className="py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
-                  <span className="font-semibold text-neutral-500">{sp.label}</span>
-                  <span className="font-medium text-[#0A0A0A]">{sp.val}</span>
+                <div key={sIdx} className="flex items-start gap-3 text-xs sm:text-sm text-neutral-700">
+                  <CheckCircle2 className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
+                  <span>{sp}</span>
                 </div>
               ))}
             </div>
 
-            <div className="pt-2">
+            <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <button
                 onClick={() => onOpenQuoteModal(current.name)}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider transition-colors"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0A0A0A] hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md"
               >
-                <span>Request Commission Pricing for {current.name.split(" ")[2] || "Instrument"}</span>
+                <span>Request Commission Pricing</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
-            </div>
-          </div>
 
-          {/* Right: ZUSP Quality Guarantee Panel (Minimalist White Box) */}
-          <div className="lg:col-span-5 bg-neutral-50 border border-neutral-200 p-8 rounded-3xl space-y-6">
-            <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#7CB342]">
-                Quality Assurance
-              </span>
-              <h4 className="text-xl font-bold text-[#0A0A0A] mt-1">
-                Zatil Strings' Unique Selling Points (ZUSP)
-              </h4>
-              <p className="text-xs text-neutral-500 mt-1">
-                Every stringed instrument produced includes our 5-pillar manufacturing guarantee:
-              </p>
+              <div className="inline-flex items-center gap-2 text-xs text-neutral-500 font-semibold px-4 py-3 bg-white rounded-full border border-neutral-200">
+                <Shield className="w-4 h-4 text-[#7CB342]" />
+                <span>Includes 6-Month Free Restoration Warranty</span>
+              </div>
             </div>
-
-            <ul className="space-y-3.5 text-xs text-neutral-700">
-              <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
-                <span><strong>African Seasoned Tonewood:</strong> High resonance and natural resistance to tropical heat and humidity.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
-                <span><strong>Manufacturer Warranty:</strong> Comprehensive warranty on all woodwork joinery.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
-                <span><strong>Protective Flight Case:</strong> Custom lightweight protective casing included.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
-                <span><strong>6-Month Free Restoration:</strong> Complimentary setup inspection & tonal re-adjustment.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-[#7CB342] flex-shrink-0 mt-0.5" />
-                <span><strong>Owner's Care Guide:</strong> Complete maintenance documentation for Nigerian climates.</span>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
