@@ -8,52 +8,52 @@ export default function PhotoGallery() {
 
   const projects = [
     {
-      title: "Cathedral of St. Paul's Pipe-Organ Façade",
+      title: "Cathedral of St. Paul's Anglican Church",
       category: "organs",
       location: "Ozoro, Delta State",
       year: "2024",
-      highlight: "51st Installation • 2-Manual Viscount Console",
+      highlight: "Milestone Opus #51 • 2-Manual Viscount Console",
       code: "OPUS-051",
     },
     {
-      title: "Handcrafted Concert Violin Assembly",
-      category: "strings",
-      location: "Akure Workshop, Ondo State",
-      year: "2024",
-      highlight: "Seasoned African Tonewood • Hand-Rubbed Varnish",
-      code: "VLN-2024",
-    },
-    {
-      title: "Sanctuary Pipe-Organ Façade & Casework",
+      title: "Church of the Ascension Pipe-Organ Façade",
       category: "organs",
-      location: "Lagos Cathedral Commission",
-      year: "2023",
-      highlight: "Gilded Gold Pipes • Hardwood Bracing",
-      code: "OPUS-047",
+      location: "Badore, Ajah, Lagos State",
+      year: "2024",
+      highlight: "Custom Architectural Pipe Scaling & Casework",
+      code: "OPUS-049",
     },
     {
-      title: "Master Cello Arching & Soundpost Calibration",
+      title: "All Saints Anglican Church Digital Organ",
+      category: "organs",
+      location: "Yaba, Lagos State",
+      year: "2023",
+      highlight: "Sanus Dominos Organ & Bespoke Pipe Façade",
+      code: "OPUS-048",
+    },
+    {
+      title: "Our Father's Cathedral Façade Installation",
+      category: "organs",
+      location: "Port Harcourt, Rivers State",
+      year: "2023",
+      highlight: "High-Vaulted Gallery Façade Casework",
+      code: "OPUS-045",
+    },
+    {
+      title: "St. Andrew's Anglican Church Pipe Façade",
+      category: "organs",
+      location: "Rumubiakani, Rivers State",
+      year: "2023",
+      highlight: "Sanctuary Voicing & Solid Timber Framing",
+      code: "OPUS-043",
+    },
+    {
+      title: "Concert Violins & Cellos Hand-Carving",
       category: "strings",
-      location: "Akure Craft Studio",
-      year: "2023",
-      highlight: "Hand-Carved Spruce • Ebony Fittings",
-      code: "CLO-2023",
-    },
-    {
-      title: "High-SPL Institutional Audio Enclosures",
-      category: "audio",
-      location: "Regional Assembly Auditorium",
+      location: "39 Yaba Street Atelier, Akure",
       year: "2024",
-      highlight: "Acoustic Tuning & Bracing",
-      code: "AUD-2024",
-    },
-    {
-      title: "Classical Bow Re-Hairing & Neck Reset",
-      category: "repairs",
-      location: "Zatil Lutherie Clinic",
-      year: "2024",
-      highlight: "Mongolian Horsehair • Bridge Cut",
-      code: "RPR-2024",
+      highlight: "Seasoned African Tonewood & Madagascar Ebony",
+      code: "LUTH-2024",
     },
   ];
 
@@ -75,10 +75,8 @@ export default function PhotoGallery() {
           <div className="flex flex-wrap gap-2">
             {[
               { id: "all", label: "All Projects" },
-              { id: "organs", label: "Pipe Organs" },
-              { id: "strings", label: "String Lutherie" },
-              { id: "audio", label: "Audio Enclosures" },
-              { id: "repairs", label: "Restorations" },
+              { id: "organs", label: "Pipe Organs (51+)" },
+              { id: "strings", label: "Bowed Strings" },
             ].map((btn) => (
               <button
                 key={btn.id}
@@ -95,12 +93,12 @@ export default function PhotoGallery() {
           </div>
         </div>
 
-        {/* Minimalist Archive Table / Rows (No Box Cards) */}
+        {/* Minimalist Archive Table Rows */}
         <div className="border-t border-neutral-200 divide-y divide-neutral-200">
           {filtered.map((proj, idx) => (
             <div
               key={idx}
-              className="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-center hover:bg-neutral-50 px-4 -mx-4 transition-colors"
+              className="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-center hover:bg-neutral-50 px-4 -mx-4 transition-colors rounded-xl"
             >
               <div className="md:col-span-2 text-xs font-mono font-bold text-[#F26522]">
                 {proj.code} • {proj.year}
@@ -121,7 +119,7 @@ export default function PhotoGallery() {
               </div>
 
               <div className="md:col-span-2 text-left md:text-right text-xs font-mono text-[#7CB342] font-bold">
-                Completed ✓
+                Completed & Consecrated ✓
               </div>
             </div>
           ))}

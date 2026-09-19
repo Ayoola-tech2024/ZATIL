@@ -84,7 +84,7 @@ export default function Footer() {
             <div className="space-y-2 text-xs text-neutral-600">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#F26522] mt-0.5" />
-                <span>Akure, Ondo State, Nigeria</span>
+                <span>39 Yaba Street, off Oluwatuyi, Akure, Ondo State, Nigeria</span>
               </div>
               <div className="flex items-start gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#F26522] mt-0.5" />
